@@ -1,2 +1,2 @@
-# lagrange_points
+# Lagrange_points
 Project of software development 
