@@ -16,7 +16,7 @@ Herramienta gráfica para visualizar los puntos de Lagrange y potencial de Roche
 
 NombredeFuncion(Masa1,Masa2,Distancia, opcional)
 
-*Parametros:
-  *Masa1 (Float)= Masa del objeto más masivo, al tratarse de numeros grandes,en kilogramos. Se puede expresar como potencia de 10 con Numpy(Ej: 1e10)
-  *Masa2 (Float)= Masa del objeto menos másivo en comparacion al primero, en kilogramos. Se puede expresar como potencia de 10 con Numpy(Ej: 1e10)
-  *Distancia (Float)= Distancia entre los dos objetos, en kilometros. Se puede expresar como potencia de 10 con Numpy(Ej: 1e10)
+* Parametros:
+  * Masa1 (Float)= Masa del objeto más masivo, al tratarse de numeros grandes,en kilogramos. Se puede expresar como potencia de 10 con Numpy(Ej: 1e10)
+  * Masa2 (Float)= Masa del objeto menos másivo en comparacion al primero, en kilogramos. Se puede expresar como potencia de 10 con Numpy(Ej: 1e10)
+  * Distancia (Float)= Distancia entre los dos objetos, en kilometros. Se puede expresar como potencia de 10 con Numpy(Ej: 1e10)
