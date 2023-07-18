@@ -9,7 +9,7 @@ from PyAstronomy import pyasl
 from matplotlib.widgets import Slider
 
 #Funcion
-def puntos_lagrange(masa1,masa2,distancia):
+def LagRochePlot(masa1,masa2,distancia):
   '''
   La función get_lagrange, propia de PyAstronomy, ya calcúla los puntos de lagrange, lo que es un problema menos, 
   ya que así nos podemos enfocar más a fondo en la personalizacion de la visualización de estos datos y el potencial
@@ -54,7 +54,7 @@ def puntos_lagrange(masa1,masa2,distancia):
     ax.scatter(l5[0], l5[1], label='L5', edgecolor='black')
     ax.legend()
     ax.grid()
-    ax.set_title('Roche lobe  \n  Interactive menu')
+    ax.set_title('Lagrange points and Roche lobe  \n  Interactive menu')
     
     
   #Parametros:
@@ -91,8 +91,8 @@ def puntos_lagrange(masa1,masa2,distancia):
 #MAIN
 #Datos de ejemplo: (en un futuro debería ser el usuario el que ingrese estos valores)
 #Establecer en el input que m1 => m2
-moon = 7.3477e22 #[Kg]1.898e27#
-earth = 5.97219e24 #[Kg]1.989e30#
+moon = 7.3477e22 #[Kg]
+earth = 5.97219e24 #[Kg]
 distance = 384399 #[Km]
 
-print(puntos_lagrange(earth,moon,distance))
+print(LagRochePlot(earth,moon,distance))
