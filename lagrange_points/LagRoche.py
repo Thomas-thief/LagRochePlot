@@ -1,5 +1,5 @@
 
-#Snapshot 1.1.2
+#Snapshot 1.1.3
 
 #Importacion de funciones:
 
@@ -7,6 +7,7 @@ import numpy as np
 import matplotlib.pylab as plt
 from PyAstronomy import pyasl
 from matplotlib.widgets import Slider, Button
+import os
 
 #Clase
 class LagRochePlot:
@@ -26,17 +27,17 @@ class LagRochePlot:
         self.dis = dis
 
         plt.style.use(['dark_background'])
-        self.fig, self.ax = plt.subplots()  # Crea la figura y los ejes
-        plt.subplots_adjust(left=0.14, right=0.78, bottom=0.2)  # Ajusta los márgenes
+        self.fig, self.ax = plt.subplots(figsize=(6.3,6.7))  # Crea la figura y los ejes
+        plt.subplots_adjust(left=0.17, right=0.95, bottom=0.35, top = 0.9)  # Ajusta los márgenes
         
-        self.slider_m1_ax = plt.axes([0.80, 0.07, 0.03, 0.7575])  # Posición y tamaño del slider
-        self.slider_m1 = Slider(self.slider_m1_ax, 'Masa\n1', self.m1/2, 1.5*self.m1, valinit=self.m1, valstep=0.1, orientation="vertical")  # Crea el slider
+        self.slider_m1_ax = plt.axes([0.19, 0.22, 0.575, 0.03])  # Posición y tamaño del slider
+        self.slider_m1 = Slider(self.slider_m1_ax, 'Masa 1 [Kg]', self.m1/2, 1.5*self.m1, valinit=self.m1, valstep=0.1, orientation="horizontal")  # Crea el slider
 
-        self.slider_m2_ax = plt.axes([0.86, 0.07, 0.03, 0.7575])  # Posición y tamaño del slider
-        self.slider_m2 = Slider(self.slider_m2_ax, 'Masa\n2', self.m2/2, self.m1/2, valinit=self.m2, valstep=0.1, orientation="vertical")  # Crea el slider
+        self.slider_m2_ax = plt.axes([0.19, 0.17, 0.575, 0.03])  # Posición y tamaño del slider
+        self.slider_m2 = Slider(self.slider_m2_ax, 'Masa 2 [Kg]', self.m2/2, self.m1/2, valinit=self.m2, valstep=0.1, orientation="horizontal")  # Crea el slider
 
-        self.slider_dis_ax = plt.axes([0.93, 0.07, 0.03, 0.7575])  # Posición y tamaño del slider
-        self.slider_dis = Slider(self.slider_dis_ax, 'Distancia', self.dis, 100.0, valinit=self.dis, valstep=0.1, orientation="vertical")  # Crea el slider
+        self.slider_dis_ax = plt.axes([0.19, 0.12, 0.575, 0.03])  # Posición y tamaño del slider
+        self.slider_dis = Slider(self.slider_dis_ax, 'Distancia [UA]', self.dis/2, 100.0, valinit=self.dis, valstep=0.1, orientation="horizontal")  # Crea el slider
 
         self.button_save_ax = plt.axes([0.02, 0.02, 0.11, 0.065])  # Posición y tamaño del botón
         self.button_save = Button(self.button_save_ax, 'Guardar',  color='black')  # Crea el botón
@@ -92,7 +93,7 @@ class LagRochePlot:
         levels = np.linspace(level[0],level[-1], 20)
 
         self.ax.clear()  # Limpia los ejes antes de actualizar el gráfico
-        self.ax.contour(self.p,levels, alpha=0.8, extent=[-2*self.dis, 3*self.dis, -2*self.dis, 2*self.dis], cmap='Greys')  # Rellena los contornos 
+        self.ax.contour(self.p,levels, alpha=0.8, extent=[-2*self.dis, 3*self.dis, -2*self.dis, 2*self.dis], cmap='viridis')  # Rellena los contornos 
         self.ax.scatter(0, 0, marker='o', color='yellow', edgecolor='white', s=300,label='Masa 1')  # Dibuja el punto central
         self.ax.scatter(1*self.dis, 0, marker='o', color='cyan', edgecolor='white', s=100,label='Masa 2')  # Dibuja el segundo punto
         self.ax.scatter(self.l1*self.dis, 0, label='L1', edgecolor='white',s=60)  # Dibuja el punto L1
@@ -100,22 +101,36 @@ class LagRochePlot:
         self.ax.scatter(self.l3*self.dis, 0, label='L3', edgecolor='white',s=60)  # Dibuja el punto L3
         self.ax.scatter(self.l4[0]*self.dis, self.l4[1]*self.dis, label='L4', edgecolor='white',s=60)  # Dibuja el punto L4
         self.ax.scatter(self.l5[0]*self.dis, self.l5[1]*self.dis, label='L5', edgecolor='white',s=60)  # Dibuja el punto L5
-        self.ax.set_title("LagRochePlot", fontname='Georgia',fontsize=30)  # Establece el título del gráfico
+        self.ax.plot((self.l3*self.dis, self.l2*self.dis), (0,0), '--', c='white', alpha= 0.5) # Dibuja lineas entre puntos
+        self.ax.plot((self.l4[0]*self.dis, 0, self.l5[0]*self.dis, self.dis, self.l4[0]*self.dis), (self.l4[1]*self.dis, 0, self.l5[1]*self.dis, 0, self.l4[1]*self.dis), '--', c='white', alpha= 0.5) # Dibuja lineas entre puntos
+        self.ax.set_title("LagRochePlot            ", fontname='Georgia',fontsize=30)  # Establece el título del gráfico
         self.ax.set_xlabel("Distancia en el eje x [AU]", fontname='Georgia', fontsize=12)  # Etiqueta del eje x
         self.ax.set_ylabel("Distancia en el eje y [AU]", fontname='Georgia', fontsize=12)  # Etiqueta del eje y
         self.ax.legend()
-        self.ax.grid(alpha=0.3)
+        self.ax.grid(alpha=0.1)
 
     def save_plot(self, event):
         '''
-        Guarda el gráfico con un nombre único.
+        Guarda el gráfico con un nombre único dentro de un carpeta 'graficos' en el escritorio.
         '''
-        plt.savefig(f'LagRochePlot N°{self.k}')
-        print(f'LagRochePlot N°{self.k}, guardado')
+        # Verificar si la carpeta "graficos" existe en el escritorio
+        ruta_escritorio = os.path.join(os.path.expanduser("~"), "Desktop")
+        carpeta_destino = os.path.join(ruta_escritorio, "graficos")
+        if not os.path.exists(carpeta_destino):
+            os.makedirs(carpeta_destino)
+
+        nombre_archivo = f'LagRochePlot N°{self.k}.png'
+        ruta_completa = os.path.join(carpeta_destino, nombre_archivo)
+
+        plt.savefig(ruta_completa)
+        print(f'LagRochePlot N°{self.k}, guardado en {ruta_completa}')
         self.k += 1
         plt.show()
     
     def lag_pts(self,event):
+        '''
+        Imprime calculos de los puntos de Lagrange segun los parametros establecidos
+        '''
         print(f'puntos de Lagrange con origen en la masa 1: \n L1=[{self.l1*self.dis},0]\n L2=[{self.l2*self.dis},0]\n L3=[{self.l3*self.dis},0]\n L4=[{self.l4[0]*self.dis}, {self.l4[1]*self.dis}]\n L5=[{self.l5[0]*self.dis}, {self.l5[1]*self.dis}]\n')
 
 
