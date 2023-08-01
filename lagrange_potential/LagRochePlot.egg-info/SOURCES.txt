@@ -3,6 +3,10 @@ LICENSE
 README.md
 pyproject.toml
 setup.cfg
+dist/LagRochePlot-1.1.1-py3-none-any.whl
+dist/LagRochePlot-1.1.1.tar.gz
+lagrange_potential/LagRoche.py
+lagrange_potential/__init__.py
 lagrange_potential/LagRochePlot.egg-info/PKG-INFO
 lagrange_potential/LagRochePlot.egg-info/SOURCES.txt
 lagrange_potential/LagRochePlot.egg-info/dependency_links.txt
