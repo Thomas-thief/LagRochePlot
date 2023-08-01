@@ -79,3 +79,9 @@ NombredeClase(Masa1,Masa2,Distancia, opcional)
 
 **plot(self):**
   **Parámetros de entrada:**
+  Parámetros de entrada:
+   * self: Asignado a elementos propios de la clase.	
+  Funcionalidad:
+   * Utiliza las funciones self.calculo() y self.update_plot() para obtener los parámetros iniciales
+   * Plotea el gráfico.
+
