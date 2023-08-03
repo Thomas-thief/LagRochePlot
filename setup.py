@@ -5,7 +5,7 @@ with open('README.md', 'r') as fh:
 
 setup(
       name = 'LagRochePlot',
-      version = '1.2.0',
+      version = '1.2.1',
       license = 'MIT',
       description = 'Herramienta gráfica para visualizar los puntos de Lagrange y potencial de Roche.',
       long_description = long_description,
