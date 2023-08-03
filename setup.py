@@ -5,12 +5,12 @@ with open('README.md', 'r') as fh:
 
 setup(
       name = 'LagRochePlot',
-      version = '1.1.3',
+      version = '1.2.0',
       license = 'MIT',
       description = 'Herramienta gráfica para visualizar los puntos de Lagrange y potencial de Roche.',
       long_description = long_description,
       long_description_content_type = 'text/markdown',
-      author = 'Thomas Salazar, Esteban Sanchez, Sebastian Lopez',
+      author = 'Thomas Salazar, Esteban Sanchez, Sebastian Lopez, Andres Rumillanca',
       install_requires = ['numpy', 'matplotlib', 'pyastronomy'],
       url = 'https://github.com/Thomas-thief/LagRochePlot',
       )
