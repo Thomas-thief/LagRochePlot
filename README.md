@@ -11,6 +11,7 @@ Herramienta gráfica para visualizar los puntos de Lagrange y potencial de Roche
 * Numpy(Version: >= 1.7)
 * Matpllotlib(Version >= 3.0.0)
 * PyAstronomy(Version = 0.20.0)
+* SciPy(Version = 1.11.1)
 
 #Como usar:(Example ejecution)
 
