@@ -141,12 +141,3 @@ class Plot:
         self.calculo()  # Calcula los valores iniciales para el trazado del gráfico
         self.update_plot(0)  # Actualiza el gráfico inicial
         plt.show()
-
-
-#Datos de ejemplo: (en un futuro debería ser el usuario el que ingrese estos valores)
-#Establecer en el input que m1 => m2
-#moon = 7.3477e22 #[Kg]
-#earth = 5.97219e24 #[Kg]
-#distance = 384399000/149597870700 #[AU]
-
-#Plot(earth,moon,distance)
