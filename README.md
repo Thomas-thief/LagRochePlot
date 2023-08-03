@@ -1,28 +1,40 @@
 # Lagrange_points
 Project of software development
 
-#Descripción del proyecto:
+
+## Descripción del proyecto:
 
 Herramienta gráfica para visualizar los puntos de Lagrange y potencial de Roche de objetos celestes con parámetros ingresados por el usuario, con una interfáz interactiva donde el usuario podrá observar como gracias a un slider con el cúal irán variando los parametrós, y en consecuencia la visualizacion de los puntos y el potencial.
 
 
-#Dependencias para su funcionamiento:
+## Dependencias para su funcionamiento:
 
 * Numpy(Version: >= 1.7)
 * Matpllotlib(Version >= 3.0.0)
 * PyAstronomy(Version = 0.20.0)
 * SciPy(Version = 1.11.1)
 
-#Como usar:(Example ejecution)
 
-NombredeClase(Masa1,Masa2,Distancia, opcional)
+## Como usar:
 
 * Parametros:
-  * Masa1 (Float)= Masa del objeto más masivo, al tratarse de numeros grandes,en kilogramos. Se puede expresar como potencia de 10 con Numpy(Ej: 1e10)
-  * Masa2 (Float)= Masa del objeto menos másivo en comparacion al primero, en kilogramos. Se puede expresar como potencia de 10 con Numpy(Ej: 1e10)
-  * Distancia (Float)= Distancia entre los dos objetos, en kilometros. Se puede expresar como potencia de 10 con Numpy(Ej: 1e10)
+  * Masa1 (Float) = Masa del objeto más masivo, al tratarse de numeros grandes,en kilogramos. Se puede expresar como potencia de 10 con Numpy(Ej: 1e10)
+  * Masa2 (Float) = Masa del objeto menos másivo en comparacion al primero, en kilogramos. Se puede expresar como potencia de 10 con Numpy(Ej: 1e10)
+  * Distancia (Float) = Distancia entre los dos objetos, en kilometros. Se puede expresar como potencia de 10 con Numpy(Ej: 1e10)
 
-#Funciones dentro le la clase principal
+    -# Importación del módulo:
+    -from LagRochePlot import LagRoche
+    -# Variables a utilizar:
+    -# Se escogen m1, m2 y distancia(por defecto en 100, 20 y 1 respectivamente):
+    -m1 = 5.97219e24      # Masa tierra [kg]
+    -m2 = 7.3477e22       # Masa luna [kg]
+    -dist = 0.00256955529  # Distancia tierra-luna [UA]
+    -# Restricción: m1 >= m2
+    -# Ejecución del módulo:
+    -LagRoche.Plot(m1,m2,dist)
+
+
+## Funciones dentro le la clase principal
 
 **__init__(m1 = 100, m2 = 20, dis = 1):**
   **Parámetros de entrada:** 
