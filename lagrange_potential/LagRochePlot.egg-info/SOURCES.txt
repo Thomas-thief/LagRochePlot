@@ -1,9 +1,0 @@
-.gitignore
-LICENSE
-README.md
-pyproject.toml
-setup.cfg
-lagrange_potential/LagRochePlot.egg-info/PKG-INFO
-lagrange_potential/LagRochePlot.egg-info/SOURCES.txt
-lagrange_potential/LagRochePlot.egg-info/dependency_links.txt
-lagrange_potential/LagRochePlot.egg-info/top_level.txt
