@@ -22,18 +22,21 @@ Herramienta gráfica para visualizar los puntos de Lagrange y potencial de Roche
   * Masa2 (Float) = Masa del objeto menos másivo en comparacion al primero, en kilogramos. Se puede expresar como potencia de 10 con Numpy(Ej: 1e10)
   * Distancia (Float) = Distancia entre los dos objetos, en kilometros. Se puede expresar como potencia de 10 con Numpy(Ej: 1e10)
 
-    
-    -# Importación del módulo:
-    -from LagRochePlot import LagRoche
-    -# Variables a utilizar:
-    -# Se escogen m1, m2 y distancia(por defecto en 100, 20 y 1 respectivamente):
-    -m1 = 5.97219e24      # Masa tierra [kg]
-    -m2 = 7.3477e22       # Masa luna [kg]
-    -dist = 0.00256955529  # Distancia tierra-luna [UA]
-    -# Restricción: m1 >= m2
-    -# Ejecución del módulo:
-    -LagRoche.Plot(m1,m2,dist)
+```
+# Importación del módulo:
+from LagRochePlot import LagRoche
 
+# Variables a utilizar:
+# Se escogen m1, m2 y distancia(por defecto en 100, 20 y 1 respectivamente):
+    
+m1 = 5.97219e24      # Masa tierra [kg]
+m2 = 7.3477e22       # Masa luna [kg]
+dist = 0.00256955529 # Distancia tierra-luna [UA]
+
+# Restricción: m1 >= m2
+# Ejecución del módulo:
+LagRoche.Plot(m1,m2,dist)
+```
 
 ## Funciones dentro le la clase principal
 
